@@ -1,0 +1,32 @@
+<div class="form-container">
+    <div class="form-group">
+        <label for="title" style="color: white;">Title</label>
+        <br>
+        <br>
+        <input required class="form-control" value="<%= article.title %>" type="text" name="title" id="title">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="description" style="color: white;">Description</label>
+        <br>
+        <br>
+        <textarea class="form-control" name="description" id="description"><%= article.description %></textarea>
+    </div>  
+    <br>  
+    <div class="form-group">
+        <label for="markdown" style="color: white;">Content</label>
+        <br>
+        <br>
+        <textarea required class="form-control" name="markdown" id="markdown" rows="8" cols="50"><%= article.markdown %></textarea>
+    </div>    
+
+</div>    
+
+<br>
+<br>
+<button class="btn btn-primary" type="submit">Save Article</button>
+<br>
+<br>
+<a href="/" style="font-size:xx-large;">←</a>
+
+
