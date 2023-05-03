@@ -19,19 +19,24 @@ router.get('/:id', async (req, res) => {
 })
 
 
-router.post('/', authCheck, async (req, res, next) => {
+router.post('/new', async (req, res, next) => {
     
-    let article = new Article({
-        title: req.body.title,
-        description: req.body.description,
-        markdown: req.body.markdown
-    })
     try {
-        article = await article.save()
-        res.redirect(`/articles/${article.id}`)
-    } catch (err) {
+        const {title, description, markdown} = req.body;
+        const article = new Article({
+            title: title,
+            description: description,
+            markdown: markdown
+        })
+        await article.save()
+
+        req.flash('success', 'Article created!')
+        res.redirect('/')
+    } catch (error) {
+        console.log(error)
         res.render('articles/new', {article: article})
     }
+    
 })
 
 router.put('/:id', authCheck, async (req, res, next) => {

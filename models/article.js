@@ -25,8 +25,7 @@ const articleSchema = new mongoose.Schema({
   },
 
   xxx: {
-    type: String,
-    required: true
+    type: String
   }
 
 })
