@@ -26,6 +26,12 @@ const articleSchema = new mongoose.Schema({
 
   xxx: {
     type: String
+  },
+  
+  author: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User', 
+    required: true 
   }
 
 })
